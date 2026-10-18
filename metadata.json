@@ -1,0 +1,11 @@
+{
+  "name": "WeatherGPT-Remix",
+  "description": "A modern, premium AI-powered weather intelligence dashboard featuring real-time meteorological metrics, 7-day forecasts, interactive map radar layers, multilingual support, and Gemini AI weather intelligence.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
