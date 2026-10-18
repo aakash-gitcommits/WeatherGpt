@@ -1,0 +1,752 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #070d1e;
+    --bg-secondary: #0d1730;
+    --card-bg: rgba(15, 23, 42, 0.75);
+    --border-color: rgba(56, 189, 248, 0.15);
+    --accent-cyan: #38bdf8;
+    --accent-amber: #f59e0b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  .light {
+    --bg-primary: #e0f2fe;
+    --bg-secondary: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: rgba(203, 213, 225, 0.8);
+    --accent-cyan: #0284c7;
+    --accent-amber: #d97706;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.45);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism terminal styles */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(17, 27, 53, 0.82) 0%, rgba(11, 19, 41, 0.72) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.light .glass-panel {
+  background: #ffffff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.glass-panel-interactive {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-interactive:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 12px 36px 0 rgba(14, 165, 233, 0.12);
+  transform: translateY(-2px);
+}
+
+.light .glass-panel-interactive:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   LIGHT THEME TARGETED CONTRAST & VISIBILITY ENHANCEMENTS
+   ========================================================= */
+
+/* Light Theme Root Canvas */
+.light {
+  color-scheme: light;
+}
+
+.light body,
+.light #root,
+.light .min-h-screen {
+  background-color: #e0f2fe !important;
+  color: #0f172a !important;
+}
+
+/* Ambient glow in light mode */
+.light .fixed.top-0 {
+  background-color: rgba(2, 132, 199, 0.05) !important;
+}
+.light .fixed.bottom-1\/4 {
+  background-color: rgba(99, 102, 241, 0.04) !important;
+}
+
+/* Text Hierarchy in Light Theme */
+.light h1,
+.light h2,
+.light h3,
+.light .text-slate-100,
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light h4,
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Header brand WeatherGPT */
+.light #main-header .font-\[\'Space_Grotesk\'\] {
+  color: #0f172a !important;
+}
+
+/* Hero City Name */
+.light #hero-city-name {
+  color: #0f172a !important;
+}
+
+/* Hero Temperature Gradient in Light Mode */
+.light #hero-temperature {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Hero Condition & Accents */
+.light #hero-condition {
+  color: #0284c7 !important;
+}
+
+.light .text-cyan-300 {
+  color: #0284c7 !important;
+}
+
+.light .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+.light .text-blue-300 {
+  color: #2563eb !important;
+}
+
+.light .text-blue-400 {
+  color: #2563eb !important;
+}
+
+.light .text-sky-300 {
+  color: #0284c7 !important;
+}
+
+.light .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+.light .text-amber-300 {
+  color: #d97706 !important;
+}
+
+.light .text-amber-400 {
+  color: #b45309 !important;
+}
+
+.light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+.light .text-rose-400 {
+  color: #e11d48 !important;
+}
+
+/* Inner card and subcard backgrounds */
+.light .bg-slate-900\/90,
+.light .bg-slate-900\/85,
+.light .bg-slate-900\/80,
+.light .bg-slate-900\/60,
+.light .bg-slate-900\/40,
+.light .bg-slate-900,
+.light .bg-slate-950\/80,
+.light .bg-slate-950\/70,
+.light .bg-slate-950\/60,
+.light .bg-slate-950\/90,
+.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+.light .bg-slate-800\/80,
+.light .bg-slate-800\/60,
+.light .bg-slate-800\/40,
+.light .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Borders in Light Theme */
+.light .border-slate-800\/80,
+.light .border-slate-800\/50,
+.light .border-slate-800,
+.light .border-slate-700\/80,
+.light .border-slate-700\/60,
+.light .border-slate-700\/50,
+.light .border-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+.light .border-cyan-500\/20,
+.light .border-cyan-500\/15,
+.light .border-cyan-500\/10 {
+  border-color: rgba(2, 132, 199, 0.18) !important;
+}
+
+/* Inputs in Light Mode */
+.light input {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light input:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+}
+
+/* Header & Floating Buttons in Light Mode */
+.light #main-header button,
+.light #locate-me-btn,
+.light #refresh-weather-btn,
+.light #unit-toggle-btn,
+.light #theme-toggle-btn,
+.light #language-selector-btn,
+.light #notifications-btn,
+.light #mobile-language-btn,
+.light #mobile-unit-btn,
+.light #mobile-locate-btn,
+.light #map-locate-me-btn,
+.light [id^="forecast-expand-btn-"] {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #main-header button:hover,
+.light #locate-me-btn:hover,
+.light #refresh-weather-btn:hover,
+.light #unit-toggle-btn:hover,
+.light #theme-toggle-btn:hover,
+.light #language-selector-btn:hover,
+.light #notifications-btn:hover,
+.light #mobile-language-btn:hover,
+.light #mobile-unit-btn:hover,
+.light #mobile-locate-btn:hover,
+.light #map-locate-me-btn:hover {
+  background-color: #f1f5f9 !important;
+  color: #0284c7 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Hero High/Low/Rain Pill Badges */
+.light #main-weather-card .flex.items-center.gap-1\.5.px-3.py-1\.5 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Hero Greeting and Daily Guidance cards */
+.light #card-weather-greeting,
+.light #card-daily-guidance {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+.light #card-weather-greeting .text-slate-200,
+.light #card-daily-guidance .text-slate-200 {
+  color: #334155 !important;
+}
+.light #main-weather-card .border-slate-700\/50 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Hero right animated icon box */
+.light #main-weather-card .md\:col-span-5 {
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* 7-Day Forecast Rows */
+.light #weather-forecast-section [id^="forecast-row-"] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #weather-forecast-section [id^="forecast-row-"]:hover {
+  background-color: #ffffff !important;
+  border-color: #93c5fd !important;
+  box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.08) !important;
+}
+
+.light #weather-forecast-section .bg-slate-900\/90 {
+  background-color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 6px 18px -3px rgba(2, 132, 199, 0.12) !important;
+}
+
+.light #weather-forecast-section [id^="forecast-details-"] .p-3 {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #weather-forecast-section .h-2.rounded-full.bg-slate-800\/90 {
+  background-color: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* AI Chat Window in Light Mode */
+.light #ai-weather-assistant-section .h-\[530px\] {
+  background-color: #ffffff !important;
+}
+
+.light #ai-weather-assistant-section .bg-slate-950\/80,
+.light #ai-weather-assistant-section .bg-slate-950\/90 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #ai-weather-assistant-section .overflow-y-auto {
+  background-color: #ffffff !important;
+}
+
+.light #ai-weather-assistant-section button.shrink-0 {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light #ai-weather-assistant-section button.shrink-0:hover {
+  background-color: #f0f9ff !important;
+  color: #0284c7 !important;
+  border-color: #7dd3fc !important;
+}
+
+.light #ai-weather-assistant-section .bg-slate-900\/85,
+.light #ai-weather-assistant-section .bg-slate-900\/95 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light #ai-weather-assistant-section .bg-blue-600\/20 {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #0369a1 !important;
+}
+.light #ai-weather-assistant-section .bg-blue-600\/20 .text-slate-100,
+.light #ai-weather-assistant-section .bg-blue-600\/20 .text-slate-200,
+.light #ai-weather-assistant-section .bg-blue-600\/20 p {
+  color: #ffffff !important;
+}
+
+.light #ai-weather-assistant-section #ai-send-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+}
+
+.light #ai-weather-assistant-section #ai-voice-mic-btn:not(.bg-rose-600) {
+  background-color: #ffffff !important;
+  color: #0284c7 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Leaflet Container Fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  background-color: #0b1329 !important;
+  z-index: 10;
+}
+
+.light .leaflet-container {
+  background-color: #e2e8f0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12) !important;
+}
+
+.leaflet-popup-tip {
+  background: #0f172a !important;
+}
+
+.light .leaflet-popup-tip {
+  background: #ffffff !important;
+}
+
+/* Map layer top bar in light mode */
+.light #interactive-weather-map-section .bg-slate-950\/70 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #interactive-weather-map-section button:not(.bg-blue-600):not(.bg-amber-600):not(.bg-sky-600):not(.bg-emerald-600) {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light #interactive-weather-map-section button:not(.bg-blue-600):not(.bg-amber-600):not(.bg-sky-600):not(.bg-emerald-600):hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.light #map-layer-legend {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light #map-layer-legend .border-slate-700\/50 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Alerts and Advisories in Light Mode */
+.light #weather-alerts-container .bg-slate-900\/80 {
+  background-color: #fffbeb !important;
+  border-color: #fcd34d !important;
+}
+.light #weather-alerts-container .text-amber-200 {
+  color: #92400e !important;
+}
+.light #weather-alerts-container .text-amber-300,
+.light #weather-alerts-container .text-amber-400 {
+  color: #b45309 !important;
+}
+.light #weather-alerts-container .text-slate-300 {
+  color: #451a03 !important;
+}
+
+/* Dropdown Menus in Light Mode */
+.light #search-results-dropdown,
+.light [id="alerts-dropdown-menu"],
+.light .glass-panel.absolute {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+.light [id="alerts-dropdown-menu"] .bg-slate-900\/80 {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+.light [id="alerts-dropdown-menu"] .text-amber-300 {
+  color: #b45309 !important;
+}
+.light [id="alerts-dropdown-menu"] .text-slate-300 {
+  color: #451a03 !important;
+}
+
+/* Language Dropdown in Light Mode */
+.light .glass-panel .bg-slate-900\/80,
+.light .glass-panel .bg-slate-900\/60 {
+  background-color: #f1f5f9 !important;
+}
+
+.light .glass-panel button.text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .glass-panel button.text-slate-300:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Badges in Light Mode */
+.light .bg-cyan-500\/10,
+.light .bg-cyan-500\/20 {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+
+.light .bg-emerald-500\/10,
+.light .bg-emerald-500\/15 {
+  background-color: #ecfdf5 !important;
+  color: #047857 !important;
+  border-color: #a7f3d0 !important;
+}
+
+.light .bg-amber-500\/10,
+.light .bg-amber-500\/15,
+.light .bg-amber-500\/20 {
+  background-color: #fffbeb !important;
+  color: #b45309 !important;
+  border-color: #fde68a !important;
+}
+
+.light .bg-rose-500\/10,
+.light .bg-rose-500\/15,
+.light .bg-rose-500\/20 {
+  background-color: #fff1f2 !important;
+  color: #be123c !important;
+  border-color: #fecdd3 !important;
+}
+
+.light .bg-blue-500\/10,
+.light .bg-blue-500\/15,
+.light .bg-blue-500\/20 {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #bfdbfe !important;
+}
+
+.light .bg-sky-500\/10 {
+  background-color: #f0f9ff !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+
+.light .bg-indigo-500\/10 {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+  border-color: #c7d2fe !important;
+}
+
+.light .bg-teal-500\/10 {
+  background-color: #f0fdfa !important;
+  color: #0f766e !important;
+  border-color: #99f6e4 !important;
+}
+
+/* Footer in Light Mode */
+.light #app-footer {
+  border-color: #e2e8f0 !important;
+}
+.light #app-footer .text-slate-200 {
+  color: #0f172a !important;
+}
+.light #app-footer .text-slate-400 {
+  color: #64748b !important;
+}
+.light #app-footer .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================================
+   UNIQUE FEATURES SIDEBAR & COLLAPSED MENU IN LIGHT THEME
+   ========================================================= */
+
+.light #unique-features-sidebar,
+.light #unique-features-sidebar-collapsed {
+  background: #ffffff !important;
+  border-color: rgba(226, 232, 240, 0.95) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light #unique-features-sidebar .text-slate-200 {
+  color: #0f172a !important;
+}
+
+.light #unique-features-sidebar .border-slate-700\/50,
+.light #unique-features-sidebar .border-slate-700\/40,
+.light #unique-features-sidebar .border-slate-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Sidebar Active Navigation Item in Light Mode */
+.light #unique-features-sidebar button.sidebar-nav-active,
+.light #unique-features-sidebar button[aria-selected="true"] {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%) !important;
+  border-color: #7dd3fc !important;
+  box-shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.12) !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-active .sidebar-nav-label,
+.light #unique-features-sidebar button[aria-selected="true"] .sidebar-nav-label {
+  color: #0369a1 !important;
+  font-weight: 700 !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-active .sidebar-nav-icon,
+.light #unique-features-sidebar button[aria-selected="true"] .sidebar-nav-icon {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #0369a1 !important;
+  box-shadow: 0 2px 6px -1px rgba(2, 132, 199, 0.3) !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-active .sidebar-nav-chevron,
+.light #unique-features-sidebar button[aria-selected="true"] .sidebar-nav-chevron {
+  color: #0284c7 !important;
+}
+
+/* Sidebar Inactive Navigation Item in Light Mode */
+.light #unique-features-sidebar button.sidebar-nav-inactive,
+.light #unique-features-sidebar button[aria-selected="false"] {
+  color: #334155 !important;
+  border-color: transparent !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-inactive .sidebar-nav-label,
+.light #unique-features-sidebar button[aria-selected="false"] .sidebar-nav-label {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-inactive .sidebar-nav-icon,
+.light #unique-features-sidebar button[aria-selected="false"] .sidebar-nav-icon {
+  background-color: #f1f5f9 !important;
+  color: #64748b !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-inactive:hover,
+.light #unique-features-sidebar button[aria-selected="false"]:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-inactive:hover .sidebar-nav-label,
+.light #unique-features-sidebar button[aria-selected="false"]:hover .sidebar-nav-label {
+  color: #0f172a !important;
+}
+
+.light #unique-features-sidebar button.sidebar-nav-inactive:hover .sidebar-nav-icon,
+.light #unique-features-sidebar button[aria-selected="false"]:hover .sidebar-nav-icon {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Sidebar Tag Badges in Light Mode */
+.light #unique-features-sidebar .sidebar-nav-tag {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light #unique-features-sidebar button:hover .sidebar-nav-tag {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Sidebar Footer in Light Mode */
+.light #unique-features-sidebar .sidebar-footer {
+  border-color: #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+/* Hamburger Controls in Light Mode */
+.light #sidebar-expand-btn {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+.light #sidebar-expand-btn span {
+  color: #0f172a !important;
+}
+
+.light #sidebar-expand-btn:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #93c5fd !important;
+}
+
+.light #sidebar-expand-btn:hover span {
+  color: #0284c7 !important;
+}
+
+.light #sidebar-collapse-btn {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light #sidebar-collapse-btn:hover {
+  background-color: #e2e8f0 !important;
+  color: #0284c7 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Radar pulse animation */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radar-sweep 6s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
